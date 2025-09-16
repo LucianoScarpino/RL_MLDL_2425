@@ -11,34 +11,35 @@ This repository contains the full implementation of **Project 4 – Reinforcemen
 
 ```
 RL_MLDL_2425/
-├── Tasks/                         # Official course tasks
-│   ├── REINFORCE/                 # REINFORCE with/without baseline
+├── Tasks/                         
+│   ├── REINFORCE/                 
 │   │   ├── env/
 │   │   ├── agent.py
 │   │   └── train.py
-│   ├── Actor_Critic/             # Actor-Critic from scratch
+│   ├── Actor_Critic/             
 │   │   ├── env/
 │   │   ├── agent.py
 │   │   └── train.py
-│   └── PPO/                      # PPO/SAC via stable-baselines3
+│   └── PPO/                      
 │       ├── env/
 │       └── train_sb3.py
 │
-├── MADDPG/                        # Custom project extension
-│   ├── Distill.py                 # Distillation logic
-│   ├── GlobalAgent.py             # Ensemble + distillation control
-│   ├── MADDPG.py                  # Multi-agent training loop
-│   ├── MultiAgent.py              # Per-agent logic
-│   ├── Networks.py                # Actor and Critic networks
-│   ├── Train.py                   # Entry point for training
-│   ├── test.py                    # Evaluation and testing
-│   ├── Tuning.py                  # Hyperparameter tuning
-│   ├── main.py                    # Script dispatcher
-│   ├── RL_Multi_Agent/            # Training data or configs
-│   ├── tuning_results/            # Saved tuning outputs
-│   ├── vmas/                      # VMAS environments
-│   └── wandb/                     # Weights & Biases logs
+├── MADDPG/                        
+│   ├── Distill.py
+│   ├── GlobalAgent.py
+│   ├── MADDPG.py
+│   ├── MultiAgent.py
+│   ├── Networks.py
+│   ├── Train.py
+│   ├── test.py
+│   ├── Tuning.py
+│   ├── main.py
+│   ├── RL_Multi_Agent/            
+│   ├── tuning_results/            
+│   ├── vmas/                      
+│   └── wandb/                     
 │
+├── RL_Multi_Agent.pdf
 ├── README.md
 └── requirements.txt
 ```
@@ -63,51 +64,54 @@ Run REINFORCE:
 ```bash
 cd Tasks/REINFORCE
 python train.py
+```
 
 Run Actor-Critic:
 
+```bash
 cd Tasks/Actor_Critic
 python train.py
+```
 
 Run PPO:
-
+```bash
 cd Tasks/PPO
 python train_sb3.py --algo ppo --domain source
-
+```
 
 ⸻
 
-Project Extension – Multi-Agent MADDPG
+## Project Extension – Multi-Agent MADDPG
 
 In the `MADDPG/` folder you will find a custom extension implementing:
-
-    - Multi-Agent Deep Deterministic Policy Gradient (MADDPG)
-    - Centralized critic and decentralized actors
-    - Ensemble learning: multiple policies per agent
-    - Policy distillation into compact deployable policies
-    - Uniform Domain Randomization (UDR) to enhance robustness
-    - Tested in the VMAS `Balance` cooperative environment
+- Multi-Agent Deep Deterministic Policy Gradient (MADDPG)
+- Centralized critic and decentralized actors
+- Ensemble learning: multiple policies per agent
+- Policy distillation into compact deployable policies
+- Uniform Domain Randomization (UDR) to enhance robustness
+- Tested in the VMAS `Balance` cooperative environment
 
 Run MADDPG training:
 
+```bash
 cd MADDPG
 python Train.py --env_name Balance --n_agents 2 --n_episodes 1000000
-
-
-⸻
-
-Highlights
-	•	From-scratch implementation of REINFORCE and Actor-Critic
-	•	Use of SB3 to train PPO and SAC
-	•	Sim-to-sim transfer testing (source vs. target domain)
-	•	Uniform Domain Randomization on Hopper dynamics
-	•	Multi-agent coordination with MADDPG
-	•	Robustness via policy ensembles and distillation
-	•	Integration with Weights & Biases (wandb)
+```
 
 ⸻
 
-Authors
+## Highlights
+- From-scratch implementation of REINFORCE and Actor-Critic
+- Use of SB3 to train PPO and SAC
+- Sim-to-sim transfer testing (source vs. target domain)
+- Uniform Domain Randomization on Hopper dynamics
+- Multi-agent coordination with MADDPG
+- Robustness via policy ensembles and distillation
+- Integration with Weights & Biases (wandb)
+
+⸻
+
+## Authors
 
 | Name                              | Student ID     | Email                          | Department                    |
 |-----------------------------------|----------------|--------------------------------|-------------------------------|
@@ -118,7 +122,7 @@ Authors
 
 ---
 
-Third-Party Licenses
+## Third-Party Licenses
 
 This repository makes use of the [Vectorized Multi-Agent Simulator (VMAS)](https://github.com/proroklab/VectorizedMultiAgentSimulator) developed by the Multi-Agent & Heterogeneous Systems Lab (Prorok Lab), University of Cambridge.
 
@@ -133,3 +137,14 @@ VMAS is licensed under the **MIT License**.
 > furnished to do so, subject to the following conditions: [...]
 
 Full license available [here](https://github.com/proroklab/VectorizedMultiAgentSimulator/blob/main/LICENSE).
+
+## Documentation
+
+- [RL_Multi_Agent.pdf](RL_Multi_Agent.pdf) — Project report with theory, methods, and results.
+
+The report includes:
+- Background on Reinforcement Learning methods (REINFORCE, Actor-Critic, PPO, MADDPG)
+- Implementation details (environments, agents, training loops)
+- Distillation and ensemble logic
+- Experimental setup and tuning results
+- Analysis and discussion
